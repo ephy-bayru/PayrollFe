@@ -1,0 +1,118 @@
+<div class="col-xl-12 order-xl-1" *ngIf="employee">
+  <div class="card bg-secondary shadow">
+    <div class="card-body">
+      <form [formGroup]="employeeForm"  (submit)="updateEmployee()">
+        <h6 class="heading-small text-muted mb-4">Employee information</h6>
+        <div class="pl-lg-4">
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-first-name">First name</label>
+                <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" [formControl]="firstName" value="Ephrem">
+                <div *ngFor="let validation of vMsg.firstName">
+                  <div class="text-danger" *ngIf="firstName.hasError(validation.type) && (firstName.dirty || firstName.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-last-name">Last name</label>
+                <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" [formControl]="lastName" value="Bayru">
+                <div *ngFor="let validation of vMsg.lastName">
+                  <div class="text-danger" *ngIf="lastName.hasError(validation.type) && (lastName.dirty || lastName.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-username">Phone Number</label>
+                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="phone number" [formControl]="phoneNumber" value="0920208549">
+                <div *ngFor="let validation of vMsg.phoneNumber">
+                  <div class="text-danger" *ngIf="phoneNumber.hasError(validation.type) && (phoneNumber.dirty || phoneNumber.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-email">Email address</label>
+                <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="email" [formControl]="email">
+                <div *ngFor="let validation of vMsg.email">
+                  <div class="text-danger" *ngIf="email.hasError(validation.type) && (email.dirty || email.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <hr class="my-4" />
+        <!-- Address -->
+        <h6 class="heading-small text-muted mb-4">Other information</h6>
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Position</label>
+                    <input id="input-address" class="form-control form-control-alternative" placeholder="Position" value="Tech Lead" [formControl]="position" type="text">
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name">Gender</label>
+                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="gender" [formControl]="gender" value="M">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label" for="input-city">Department</label>
+                <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="department" [formControl]="departmentId">
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label" for="input-country">Salary</label>
+                <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="salary" [formControl]="grossSalary">
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label" for="input-country">Status</label>
+                <input type="text" id="input-postal-code" class="form-control form-control-alternative" placeholder="status" [formControl]="status">
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <!-- Description -->
+        <!-- <h6 class="heading-small text-muted mb-4">........</h6> -->
+
+        <button class="btn btn-primary float-right" type="submit">Add Employee</button>
+
+      </form>
+    </div>
+  </div>
+</div>

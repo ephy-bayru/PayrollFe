@@ -1,0 +1,119 @@
+<div class="col-xl-12 order-xl-1">
+  <div class="card bg-secondary shadow">
+    <div class="card-body">
+      <form [formGroup]="userForm"  (submit)="registerUser()">
+        <h6 class="heading-small text-muted mb-4">User information</h6>
+        <div class="pl-lg-4">
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-first-name">First name</label>
+                <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" [formControl]="firstName" value="Ephrem">
+                <div *ngFor="let validation of vMsg.firstName">
+                  <div class="text-danger" *ngIf="firstName.hasError(validation.type) && (firstName.dirty || firstName.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-last-name">Last name</label>
+                <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" [formControl]="lastName" value="Bayru">
+                <div *ngFor="let validation of vMsg.lastName">
+                  <div class="text-danger" *ngIf="lastName.hasError(validation.type) && (lastName.dirty || lastName.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-username">Phone Number</label>
+                <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="phone number" [formControl]="phone" value="0920208549">
+                <div *ngFor="let validation of vMsg.phone">
+                  <div class="text-danger" *ngIf="phone.hasError(validation.type) && (phone.dirty || phone.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label class="form-control-label" for="input-email">Email address</label>
+                <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="email" [formControl]="email">
+                <div *ngFor="let validation of vMsg.email">
+                  <div class="text-danger" *ngIf="email.hasError(validation.type) && (email.dirty || email.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+        <hr class="my-4" />
+        <!-- Address -->
+        <h6 class="heading-small text-muted mb-4">Other information</h6>
+        <div class="pl-lg-4">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row">
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Password</label>
+                    <input id="input-address" class="form-control form-control-alternative" placeholder="Password" value="Tech Lead" [formControl]="password" type="password">
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name">Confirm Password</label>
+                    <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="password" [formControl]="confirm" type="password">
+                  </div>
+                  <div class="text-danger" *ngIf="confirm.errors.mustMatch">
+                    <small>passwords must match</small>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label" for="input-country">Gender</label>
+                <input type="text" id="input-postal-code" class="form-control form-control-alternative" placeholder="gender" [formControl]="gender">
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label" for="input-city">Address</label>
+                <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="address" [formControl]="address">
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="form-group">
+                <label class="form-control-label" for="input-country">Post Code</label>
+                <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="post code" [formControl]="postcode">
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <hr class="my-4" />
+        <button class="btn btn-primary float-right" type="submit" [disabled]="userForm.invalid">Add User</button>
+
+      </form>
+    </div>
+  </div>
+</div>

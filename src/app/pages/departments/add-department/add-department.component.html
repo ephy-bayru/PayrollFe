@@ -1,0 +1,47 @@
+<div class="col-xl-12 order-xl-1">
+  <div class="card bg-secondary shadow">
+    <div class="card-body">
+      <form [formGroup]="departmentForm"  (submit)="registerDepartment()">
+        <h6 class="heading-small text-muted mb-4">Department information</h6>
+        <div class="pl-lg-4">
+            <div class="col-lg-10">
+              <div class="form-group">
+                <label class="form-control-label" for="input-first-name">Name</label>
+                <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" [formControl]="name" value="Ephrem">
+                <div *ngFor="let validation of vMsg.name">
+                  <div class="text-danger" *ngIf="name.hasError(validation.type) && (name.dirty || name.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-10">
+              <div class="form-group">
+                <label class="form-control-label" for="input-last-name">Abbreviation</label>
+                <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" [formControl]="abrevation" value="Bayru">
+                <div *ngFor="let validation of vMsg.abrevation">
+                  <div class="text-danger" *ngIf="abrevation.hasError(validation.type) && (abrevation.dirty || abrevation.touched)">
+                    <small>{{validation.message}}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="col-lg-10">
+              <div class="form-group">
+                <label class="form-control-label" for="input-last-name">status</label>
+
+                <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" [formControl]="abrevation" value="Bayru">
+              </div>
+            </div> -->
+
+          </div>
+
+        <hr class="my-4" />
+        <button class="btn btn-primary float-right" type="submit" [disabled]="departmentForm.invalid">Add Department</button>
+
+      </form>
+    </div>
+  </div>
+</div>
